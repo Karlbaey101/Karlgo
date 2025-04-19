@@ -1,2 +1,0 @@
-class Solutions():
-    pass
