@@ -1,21 +1,5 @@
-s = "1110"
-"""
-0|0111
-"""
-r = s.count("1")
-l = ans = 0
-print(s[:-1])
-for i in s:
-    if i == "0":
-        l += 1
-        print("Left score is",l)
-    else:
-        r -= 1
-        print("Right score is",r)
-    ans = max(ans,l+r)
-print(ans,r+l)
-
 # 这有个二叉树！
+from itertools import accumulate
 class TreeNode:
     def __init__(self,data):
         self.data = data # 给节点数据
@@ -26,4 +10,20 @@ tree = TreeNode(10)
 tree.left = TreeNode(4)
 tree.right = TreeNode(6)
 
-print(tree.data == tree.left.data + tree.right.data)
+nums = [9,6,2,5,8,7,2]
+prefsum = [0]
+for i in range(len(nums)):
+    prefsum.append(prefsum[-1]+nums[i])
+prefsum2 = list(accumulate(nums))
+print(prefsum2)
+
+# 这有个链表！
+class ListNode:
+    # 一个链表，详见 5.
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.val.next = next
+
+llist = ListNode()
+a = [llist]
+print(a)
