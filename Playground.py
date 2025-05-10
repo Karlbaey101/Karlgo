@@ -11,13 +11,6 @@ tree = TreeNode(10)
 tree.left = TreeNode(4)
 tree.right = TreeNode(6)
 
-nums: list = [1,5,4,3]
-target = 7
-prefsum = [0]
-for i in range(len(nums)):
-    prefsum.append(prefsum[-1]+nums[i])
-prefsum2 = list(accumulate(nums))
-
 # 这有个链表！
 class ListNode:
     # 一个链表，详见 5.
@@ -39,5 +32,20 @@ for i, num in enumerate(nums):
     print("现在的字典是：",aftersum)
 print(list())
 """
-for i, num in enumerate(nums):
-    print(i,num)
+nums: list = [2,1,4,3,5]
+k: int = 10
+window: int = 0
+l: int = 0
+r: int = 0
+ans: int = 0
+
+for r in range(len(nums)):
+    window += nums[r]
+    while window * (r - l + 1) >= k:
+        window -= nums[l]
+        l += 1
+    ans += (r - l + 1)
+
+
+
+print(ans)
